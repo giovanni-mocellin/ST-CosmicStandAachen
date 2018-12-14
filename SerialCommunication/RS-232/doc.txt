@@ -28,7 +28,7 @@ int RS232_PollComport(int comport_number, unsigned char *buf, int size)
   After succesfully opening the COM-port, connect this function to a timer.
   The timer should have an interval of approx. 20 to 100 milliSeconds.
   Do not forget to stop the timer before closing the COM-port.
-  Allways check the return value! The return value tells you how many bytes
+  Always check the return value! The return value tells you how many bytes
   are actually received and present in your buffer!
 
 int RS232_SendByte(int comport_number, unsigned char byte)
