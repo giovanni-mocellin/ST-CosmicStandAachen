@@ -1,13 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <ctime>
 #include <iostream>
 #include <fstream>
 #include "rs232.h"
 
 using namespace std;
 
-int main(int cport_nr)
+int main(int cport_nr, unsigned long long int nmaxtrig) //cport_nr = ROA#-1 , nmaxtrig = number of triggers to be registered (1M)
 {
   int i, n;
   int baud = 2000000;
@@ -22,16 +23,25 @@ int main(int cport_nr)
     return(0);
   }
   
-  ofstream outfile;
-  outfile.open ("example.txt");
+  unsigned long long int trig = 0;
   
-  while (1)
+  time_t now = time(0);
+  tm *ltm = localtime(&now);
+  
+  string outname = "ROA" + to_string(cport_nr+1) + "_" + to_string(1900 + ltm->tm_year) + "_" + to_string(ltm->tm_mon) + "_" + to_string(ltm->tm_mday) + "_" + to_string(ltm->tm_hour) + "_" + to_string(ltm->tm_min) + "_" + to_string(ltm->tm_sec) + ".dat";
+  
+  ofstream outfile;
+  outfile.open(outname);
+  
+  while (trig < nmaxtrig)
   {
     n = RS232_PollComport(cport_nr, buf, 4095);
     
     if (n > 0)
     {
       printf("received %i bytes: %s\n", n, (char *)buf);
+      outfile << buf;
+      trig++;
     }
   }
   
@@ -39,5 +49,3 @@ int main(int cport_nr)
   
   return(0);
 }
-
-
