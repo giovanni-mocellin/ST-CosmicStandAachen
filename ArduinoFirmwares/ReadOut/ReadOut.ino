@@ -2,16 +2,16 @@
 
 /*
    FIXED OUTPUT LENGTH TO LET THE ARDUINO BE SYNCHRONIZED
-   Baud rate 2Mbps - maybe 3 with FTDI
+   Baud rate 2Mbps
    1 byte arduino_ID
    2 byte evt counter
    24 bytes to send out data
    1 byte checksum
 */
 
-const char* syncMessage = "Sync of all the Read-Out Arduinos"; // more than 30 characters => cannot be faked by the data stream
+const char* syncMessage = "Sync of all the Read-Out Arduinos"; // 33 characters => cannot be faked by the data stream, which is 28 bytes long
 
-const byte arduino_identifier = 1;
+const byte arduino_identifier = 1; // assign a different ID to each of the arduino boards (from 1 to 8, even for wires+incl_strips and odd for strips)
 volatile unsigned int evt_number = 0;
 byte checksum = 0;
 

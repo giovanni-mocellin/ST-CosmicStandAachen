@@ -1,4 +1,4 @@
-// Send a sync pulse to the other 8 Arduino boards every 1 min
+// Send a sync pulse to the other 8 Arduino boards every 10 sec
 
 void setup()
 {
@@ -17,5 +17,5 @@ void loop()
     Serial.write("Sync sent\n");
     delayMicroseconds(4);
     PORTC = PORTC & 0b11110000; // clock pin LOW
-    delay(1000); // ms
+    delay(10000); // ms
 }
