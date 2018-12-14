@@ -24,8 +24,6 @@ int main(int cport_nr)
   
   ofstream outfile;
   outfile.open ("example.txt");
-  outfile << "Writing this to a file.\n";
-  outfile.close();
   
   while (1)
   {
@@ -36,6 +34,8 @@ int main(int cport_nr)
       printf("received %i bytes: %s\n", n, (char *)buf);
     }
   }
+  
+  outfile.close();
   
   return(0);
 }

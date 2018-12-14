@@ -14,7 +14,7 @@ g++ DataAcquisition.c rs232.c -Wall -Wextra -o2 -o arduinoDAQ
 
 ### To run a data acquisition
 ```
-pyhton DAQarduinoON.py <time for each chunk> <number of chuncks>
+pyhton DAQarduinoON.py <number of triggers per file> <number of files>
 ```
 
 ## Reconstruction code
