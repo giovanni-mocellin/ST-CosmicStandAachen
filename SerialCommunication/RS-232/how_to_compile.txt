@@ -1,7 +1,7 @@
 
 Compiling the demo's can be done as follows:
 
-g++ DataAcquisition.c rs232.c -Wall -Wextra -o2 -o arduinoDAQ
+g++ DataAcquisition.c rs232.c -w -o arduinoDAQ
 
 Run the demo by typing:
 

@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int main(int cport_nr=0)
+int main(int cport_nr)
 {
   int i, n;
   int bdrate=2000000;       /* 2000000 baud */
@@ -17,7 +17,6 @@ int main(int cport_nr=0)
   if(RS232_OpenComport(cport_nr, bdrate, mode))
   {
     printf("Can not open comport\n");
-
     return(0);
   }
 
@@ -39,8 +38,6 @@ int main(int cport_nr=0)
 
       printf("received %i bytes: %s\n", n, (char *)buf);
     }
-
-    usleep(100000);  /* sleep for 100 milliSeconds */
   }
 
   return(0);
