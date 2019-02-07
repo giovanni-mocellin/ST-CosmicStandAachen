@@ -21,4 +21,5 @@ Steps:
   -  Creating a final file that event by event gives the recHits of the four layers in X,Y,Z coordinates
 
 ## Track recontruction
-The code is based on ROOT: reads the value of the recHits 
+The code is based on ROOT: reads the value of the recHits and fits the track event by event.
+If multiple hits are found in one layer, the program fits all the combinations and selects the best track for the event (noise rejection)
