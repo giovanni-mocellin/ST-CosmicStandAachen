@@ -1,0 +1,18 @@
+
+Compiling the DAQ can be done as follows:
+
+g++ DataAcquisition.c rs232.c -w -o arduinoDAQ
+
+Run the demo by typing:
+
+./arduinoDAQ portnumber (portnumber=1..8)
+
+Compiling the Sync can be done as follows:
+
+g++ SyncCommunication.c rs232.c -w -o arduinoSync
+
+Run the demo by typing:
+
+./arduinoSync 0
+
+

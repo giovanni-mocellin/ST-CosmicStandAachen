@@ -12,7 +12,7 @@
 const char* syncMessage = "Sync of all the Read-Out Arduinos"; // 33 characters => cannot be faked by the data stream, which is 28 bytes long
 
 const byte arduino_identifier = 1; // assign a different ID to each of the arduino boards (from 1 to 8, even for wires+incl_strips and odd for strips)
-volatile unsigned int evt_number = 0;
+volatile unsigned int evt_number = 0; // max number is 65535
 byte checksum = 0;
 
 const byte header_len = 3;
