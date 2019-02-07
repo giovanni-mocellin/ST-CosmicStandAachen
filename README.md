@@ -1,5 +1,5 @@
 # ST-CosmicStandAachen
-All the needed code to run the Streamer Tubes of the CosmicStandAachen, from the Arduino DAQ FW to the muon track reconstruction and analysis SW
+All the needed code to run the Streamer Tubes of the CosmicStandAachen, from the Arduino DAQ FW to the muon track reconstruction and analysis SW.
 
 ## Get repository
 git clone https://github.com/giovanni-mocellin/ST-CosmicStandAachen.git
