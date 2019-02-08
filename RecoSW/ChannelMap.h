@@ -1,22 +1,14 @@
-#ifndef KascadeChannelMap_h
-#define KascadeChannelMap_h
-
 #include "DataStructures.h"
-
-using namespace std;
 
 float WirePos (float channel, char layer_type)
 {
     float xpos = 0;
-    
     float x0 = 1.33; // cm , first channel in first module from left side
     
     if (layer_type == 'A') channel = channel - 1;
-    
     if (layer_type == 'B') channel = 96 - channel;
     
     int module = int(float(channel)/8.0); // module from 0 to 11
-    
     int channel_in_module = int(channel) % 8;
     
     xpos = x0 + 16.66 * module + 2.0 * channel_in_module;
@@ -54,5 +46,3 @@ mqDStrip DStripPos (float channel, char layer_type)
     
     return dpos;
 }
-
-#endif

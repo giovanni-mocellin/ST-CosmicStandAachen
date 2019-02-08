@@ -9,9 +9,16 @@ int main(int argc, char** argv) // called with argv[0] = run_# , argv[1] = #_of_
   int run_num = atoi(argv[1]);
   int nFiles = atoi(argv[2])/2; // #min/2 if each lasts for ~2 min...
   
+  string folderName = "../../ST_Run" + to_string(run_num);
+  
+  cout << folderName << endl;
+  
+  const int dir_err = mkdir(folderName.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+  if (dir_err == -1) { cout << "An ouptut folder with the same name already exists, please change the run number or delete the previous one!\n"; exit(1); }
+  
   now = time(0);
   ltm = localtime(&now);
-  string logname = "Log_Run" + to_string(run_num) + "_" + to_string(1900 + ltm->tm_year) + "_" + to_string(ltm->tm_mon+1) + "_" + to_string(ltm->tm_mday) + ".txt";
+  string logname = "../../ST_Run" + to_string(run_num) + "/Log_Run" + to_string(run_num) + "_" + to_string(1900 + ltm->tm_year) + "_" + to_string(ltm->tm_mon+1) + "_" + to_string(ltm->tm_mday) + ".txt";
     
   outfile[0].open(logname);
   
@@ -93,7 +100,7 @@ void openOutputDataFiles(int run, int part, tm *ltm)
   
   for (int cport_nr = 1 ; cport_nr <= 8 ; cport_nr++)
   {
-    outname = "Run" + to_string(run) + "_chunk" + to_string(part) + "_ROA" + to_string(cport_nr) + ".dat";
+    outname = "../../ST_Run" + to_string(run) + "/Run" + to_string(run) + "_chunk" + to_string(part) + "_ROA" + to_string(cport_nr) + ".dat";
     
     outfile[cport_nr].open(outname);
     //outfile[cport_nr] << "ROA" << cport_nr << " file opened.";

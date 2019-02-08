@@ -2,16 +2,8 @@
 
 ## Unpacker
 Steps:
-- ZeroSuppression, merging the different chunk files for all the ROAs into a single one (¿skipping chunk zero?)
-  - It can be a root file with raw data in a tree stucture, like: event by event: vector_of_channels_fired_in_ROA_1 vector_of_channels_fired_in_ROA_2 vector_of_channels_fired_in_ROA_3 ...
-  - Or a simple .txt file, like:
-    Event 0
-    ROA1 1 32 57
-    ROA2 4 5
-    ROA3 ...
-    ...
-    Event 1
-    ...
+- ZeroSuppression, merging the different chunk files for all the ROAs into a single one
+  - It is a root file with raw data in a TTree stucture, like: event by event: vector_of_channels_fired_in_ROA_1 vector_of_channels_fired_in_ROA_2 vector_of_channels_fired_in_ROA_3 ...
 - Interpretation of the channels of the boards. This includes 4 steps:
   - Merging of the neighboring channels into a single one (need to specify cluster size to get the error on the recHit)
   - Mapping of the merged channel into a coordinate value:
