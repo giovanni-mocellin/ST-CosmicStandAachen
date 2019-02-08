@@ -20,6 +20,6 @@ Steps:
   - Comparison between the 2D hit and the diagonal hit, to check if confirmed or not (it should be... within the cluster size!)
   -  Creating a final file that event by event gives the recHits of the four layers in X,Y,Z coordinates
 
-## Track recontruction
+## Track reconstruction
 The code is based on ROOT: reads the value of the recHits and fits the track event by event.
 If multiple hits are found in one layer, the program fits all the combinations and selects the best track for the event (noise rejection)
