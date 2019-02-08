@@ -53,9 +53,9 @@ void  read_shift()
   {
     for ( byte bn = 0 ; bn <= 7 ; bn ++)
     {
-      stored = PINC & 0b00000001; // ok, because we the SROUT is on pin A0 (first bit in the byte)
+      stored = PINC & 0b00000001; // ok, because the SROUT is on pin A0 (first bit in the byte)
       PORTD = PORTD | 0b11110000; // SRCLK HIGH
-      stored_data[sr] = stored_data[sr] << 1 | stored; // ok, because we the SROUT is on pin A0 (first bit in the byte)
+      stored_data[sr] = stored_data[sr] << 1 | stored; // ok, because the SROUT is on pin A0 (first bit in the byte)
       PORTD = PORTD & 0b00001111; // SRCLK LOW
     }
   }

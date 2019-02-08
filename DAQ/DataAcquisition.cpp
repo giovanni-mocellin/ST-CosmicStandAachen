@@ -93,7 +93,7 @@ void openOutputDataFiles(int run, int part, tm *ltm)
   
   for (int cport_nr = 1 ; cport_nr <= 8 ; cport_nr++)
   {
-    outname = "Run" + to_string(run) + "_chunk" + to_string(part) + "_ROA" + to_string(cport_nr) + "_" + to_string(1900 + ltm->tm_year) + "_" + to_string(ltm->tm_mon+1) + "_" + to_string(ltm->tm_mday) + ".dat";
+    outname = "Run" + to_string(run) + "_chunk" + to_string(part) + "_ROA" + to_string(cport_nr) + ".dat";
     
     outfile[cport_nr].open(outname);
     //outfile[cport_nr] << "ROA" << cport_nr << " file opened.";
