@@ -17,6 +17,7 @@ cd SerialCommunication
 ```
 ./DAQforST <run_number> <number_of_minutes_of_DAQ>
 ```
+For each of the ROAs, the file size should amount to 120MB per hour of data taking. In total, with 8 connected ROAs, the size would be around 1GB/h.
 
 ## Reconstruction code
 The software for the reconstruction can be found in the folder "RecoSW/"
