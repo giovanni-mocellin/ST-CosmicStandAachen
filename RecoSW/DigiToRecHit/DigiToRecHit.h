@@ -1,5 +1,5 @@
-#include "DataStructures.h"
-#include "IncludeLibraries.h"
+#include "../DataStructures/DataStructures.h"
+#include "../Libraries/IncludeLibraries.h"
 
 // Input files related variables
 int run_num;
