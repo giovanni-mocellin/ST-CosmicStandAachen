@@ -29,11 +29,13 @@ TBranch * digiL2b = digiTree->Branch("digiL2",&digiLay[1]);
 TBranch * digiL3b = digiTree->Branch("digiL3",&digiLay[2]);
 TBranch * digiL4b = digiTree->Branch("digiL4",&digiLay[3]);
 
+// create some histograms for occupancy plots!!!
+
 // Intermediate variables (fill these vectors with mapped raw)
 vector<unsigned int> *wire[4] = {0,0,0,0};
 vector<unsigned int> *strip[4] = {0,0,0,0};
 vector<unsigned int> *dstrip[4] = {0,0,0,0};
 
 // Functions
-void clusterize(vector<unsigned int>, vector<unsigned int>);
+void clusterize(vector<unsigned int>, vector<unsigned int>); // create a new cluster if the hole is 1 strip at least (discontinuity)
 void createDigis(vector<unsigned int>, vector<unsigned int>, vector<unsigned int>, vector<digi>); // creates all the combinations of hits - all the wires, with all the strips, with all the dstrips

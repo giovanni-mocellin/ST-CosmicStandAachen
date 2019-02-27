@@ -37,7 +37,7 @@ int main (int argc, char** argv)
   // Loop for reading the events and storing them in the tree
   for (evt = 0 ; evt < evnum ; evt++)
   {
-    if (evt % 250 == 0) cout << "Analyzing files: run " << run_num << ", evt " << evt << endl;
+    if (evt % 250 == 0) cout << "RawToDigi processing: run " << run_num << ", evt " << evt << endl;
     
     unsigned long int tentry = rawTree->LoadTree(evt);
     ROA1b->GetEntry(tentry);
@@ -53,9 +53,19 @@ int main (int argc, char** argv)
     {
       for (unsigned int j = 0; j < ROA[ardnum]->size(); j++)
       {
-        ROA[ardnum]->at(j);
+        // Mapping of read out channels to detector physical channels
+        if (ardnum == 0 && ROA[ardnum]->at(j) < 96) strip[0]->push_back(ROA[ardnum]->at(j) + 97);
+        if (ardnum == 0 && ROA[ardnum]->at(j) >= 96) wire[0]->push_back(ROA[ardnum]->at(j) - 95);
+        if (ardnum == 1 && ROA[ardnum]->at(j) < 96) dstrip[0]->push_back(ROA[ardnum]->at(j) + 1);
+        if (ardnum == 1 && ROA[ardnum]->at(j) >= 96) strip[0]->push_back(ROA[ardnum]->at(j) - 95);
+        if (ardnum > 1 && ardnum%2==0 && ROA[ardnum]->at(j) < 96) wire[int(ardnum/2)]->push_back(ROA[ardnum]->at(j) + 1);
+        if (ardnum > 1 && ardnum%2==0 && ROA[ardnum]->at(j) >= 96) strip[int(ardnum/2)]->push_back(ROA[ardnum]->at(j) - 95);
+        if (ardnum > 1 && ardnum%2==1 && ROA[ardnum]->at(j) < 96) strip[int(ardnum/2)]->push_back(ROA[ardnum]->at(j) + 97);
+        if (ardnum > 1 && ardnum%2==1 && ROA[ardnum]->at(j) >= 96) dstrip[int(ardnum/2)]->push_back(ROA[ardnum]->at(j) - 95);
       }
     }
+    
+    // here fill the occupancy plots for w, s, ds!!!
     
     digiL1b->SetAddress(&digiLay[0]);
     digiL2b->SetAddress(&digiLay[1]);

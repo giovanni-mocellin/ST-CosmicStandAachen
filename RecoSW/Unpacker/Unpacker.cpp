@@ -53,7 +53,7 @@ int main (int argc, char** argv)
     // Loop for reading the events and storing them in the tree
     for (evt = 0 ; evt < evnum ; evt++)
     {
-      if (evt % 250 == 0) cout << "Analyzing files: run " << run_num << ", chunk " << chunk << ", evt " << evt << endl;
+      if (evt % 250 == 0) cout << "Unpacker processing file: run " << run_num << ", chunk " << chunk << ", evt " << evt << endl;
       for (int ardnum = 0 ; ardnum < 8 ; ardnum++)
       {
         // Positioning at the corresponding event in the file
