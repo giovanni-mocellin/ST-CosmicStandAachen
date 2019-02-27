@@ -4,7 +4,7 @@ int main (int argc, char** argv)
 {
   run_num = atoi(argv[1]);
   
-  string dataPath = "../../ST_Run" + to_string(run_num) + "/";
+  string dataPath = "../../../ST_Run" + to_string(run_num) + "/";
   
   string outname = dataPath + "Run" + to_string(run_num) + "_raw.root";
   outfile = new TFile(outname.c_str(),"RECREATE");
