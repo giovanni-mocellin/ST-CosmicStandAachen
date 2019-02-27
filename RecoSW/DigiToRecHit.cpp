@@ -1,4 +1,12 @@
-#include "Unpacker.h"
+#include "DigiToRecHit.h"
+
+//int main () {
+//  recHit *hit = new recHit;
+//  hit->set_x(1.,1.);
+//  cout << hit->x() << endl;
+//  return 0;
+//}
+
 
 int main (int argc, char** argv)
 {
@@ -6,7 +14,7 @@ int main (int argc, char** argv)
   
   string dataPath = "../../ST_Run" + to_string(run_num) + "/";
   
-  string outname = dataPath + "Run" + to_string(run_num) + "_raw.root";
+  string outname = dataPath + "Run" + to_string(run_num) + "_digi.root";
   outfile = new TFile(outname.c_str(),"RECREATE");
   if ( outfile->IsOpen() ) cout << "outfile opened successfully" << endl;
   
@@ -98,10 +106,11 @@ int main (int argc, char** argv)
     {
       infile[ardnum]->close();
     }
+    
+    dataTree->Write();
+    dataTree->Print();
   }
   
-  dataTree->Write();
-  dataTree->Print();
   outfile->Close();
   
   return 0;

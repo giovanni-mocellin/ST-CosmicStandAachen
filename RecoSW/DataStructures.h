@@ -43,16 +43,19 @@ void digi::set_dstrip (int digi_ds, int digi_dscls) {
 class recHit {
   double x_, y_, z_;
   double xerr_, yerr_, zerr_;
+  bool isConfirmed_;
 public:
   void set_x(double, double);
   void set_y(double, double);
   void set_z(double, double);
+  void set_confirm(bool);
   double x() {return(x_);}
   double y() {return(y_);}
   double z() {return(z_);}
   double xerr() {return(xerr_);}
   double yerr() {return(yerr_);}
   double zerr() {return(zerr_);}
+  bool isConfirmed() {return(isConfirmed_);}
 };
 
 void recHit::set_x (double hit_x, double hit_xerr) {
@@ -66,4 +69,7 @@ void recHit::set_y (double hit_y, double hit_yerr) {
 void recHit::set_z (double hit_z, double hit_zerr) {
   z_ = hit_z;
   zerr_ = hit_zerr;
+}
+void recHit::set_confirm(bool conf) {
+  isConfirmed_ = conf;
 }

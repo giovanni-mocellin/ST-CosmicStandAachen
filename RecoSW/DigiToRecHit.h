@@ -23,14 +23,14 @@ TFile * outfile;
 TTree * dataTree = new TTree;
 TBranch * runb = dataTree->Branch("runb",&run_num,"run/I");
 TBranch * evtb = dataTree->Branch("evtb",&evt,"evt/i");
-TBranch * ROA1b = dataTree->Branch("ROA1b",&ROA[0]);
-TBranch * ROA2b = dataTree->Branch("ROA2b",&ROA[1]);
-TBranch * ROA3b = dataTree->Branch("ROA3b",&ROA[2]);
-TBranch * ROA4b = dataTree->Branch("ROA4b",&ROA[3]);
-TBranch * ROA5b = dataTree->Branch("ROA5b",&ROA[4]);
-TBranch * ROA6b = dataTree->Branch("ROA6b",&ROA[5]);
-TBranch * ROA7b = dataTree->Branch("ROA7b",&ROA[6]);
-TBranch * ROA8b = dataTree->Branch("ROA8b",&ROA[7]);
+TBranch * ROA1b = dataTree->Branch("ROA1b","std::vector<unsigned int>",&ROA[0]);
+TBranch * ROA2b = dataTree->Branch("ROA2b","std::vector<unsigned int>",&ROA[1]);
+TBranch * ROA3b = dataTree->Branch("ROA3b","std::vector<unsigned int>",&ROA[2]);
+TBranch * ROA4b = dataTree->Branch("ROA4b","std::vector<unsigned int>",&ROA[3]);
+TBranch * ROA5b = dataTree->Branch("ROA5b","std::vector<unsigned int>",&ROA[4]);
+TBranch * ROA6b = dataTree->Branch("ROA6b","std::vector<unsigned int>",&ROA[5]);
+TBranch * ROA7b = dataTree->Branch("ROA7b","std::vector<unsigned int>",&ROA[6]);
+TBranch * ROA8b = dataTree->Branch("ROA8b","std::vector<unsigned int>",&ROA[7]);
 
 // Functions
 
