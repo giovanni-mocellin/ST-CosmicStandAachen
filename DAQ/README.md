@@ -9,7 +9,7 @@ The DAQ is following these steps:
 - It is called with 2 main arguments: the RUN_NUMBER, which is THE KEY parameter and the number of minutes. Since the chunk files last for 2 minutes, it is supposed to be an even number. If it is odd, then the number of chunks is one less than expected...
 - Opening all the 9 ports (ASB + 8 ROAs)
 - Start a loop that takes the data in chunks, each 2 minutes long (first chunk is from when you launch it until the second = 0 of the + 2 minutes. e.g.: if it starts at 08:51:52, the chunk 0 lasts until 08:53:00, so 1:08 and not 2:00)
-- The chunk data files are created in the folder '../../ST_Run#' and named 'Run#_chunk#_ROA#.dat'
+- The chunk data files are created in the folder '../../ST_Run#/' and named 'Run#_chunk#_ROA#.dat'
 - The stimulus to the Arduino Sync Board is sent via serial and it sends the sync signals the 8 ROA
 - For 2 minutes the data is collected from the Arduinos' buffers and written to the files
 - The output chunk files are closed and the loop start again

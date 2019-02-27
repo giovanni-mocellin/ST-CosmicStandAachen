@@ -1,4 +1,5 @@
-#include "HeaderForST.h"
+#include "DataStructures.h"
+#include "IncludeLibraries.h"
 
 int main () {
   recHit *hit = new recHit;

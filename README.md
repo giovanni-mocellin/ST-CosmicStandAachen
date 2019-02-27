@@ -13,7 +13,7 @@ cd SerialCommunication
 ./compile.sh
 ```
 
-### To run a data acquisition
+### To take a data acquisition run
 ```
 ./DAQforST <run_number> <number_of_minutes_of_DAQ>
 ```
